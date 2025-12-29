@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conway's Game of Life</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Conway's Game of Life</h1>
+            <p class="description">A cellular automaton devised by John Conway in 1970</p>
+        </header>
+
+        <div class="game-section">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn">Start</button>
+            <button id="pauseBtn" disabled>Pause</button>
+            <button id="stepBtn">Step</button>
+            <button id="clearBtn">Clear</button>
+            <button id="randomBtn">Random</button>
+        </div>
+
+        <div class="settings">
+            <div class="setting">
+                <label for="speedSlider">Speed:</label>
+                <input type="range" id="speedSlider" min="1" max="60" value="10">
+                <span id="speedValue">10</span> fps
+            </div>
+
+            <div class="setting">
+                <label for="gridSizeSlider">Grid Size:</label>
+                <input type="range" id="gridSizeSlider" min="10" max="100" value="30">
+                <span id="gridSizeValue">30</span> x <span id="gridSizeValue2">30</span>
+            </div>
+        </div>
+
+        <div class="stats">
+            <p>Generation: <span id="generationCount">0</span></p>
+            <p>Population: <span id="populationCount">0</span></p>
+        </div>
+
+        <div class="info">
+            <h2>Rules:</h2>
+            <ol>
+                <li>Any live cell with fewer than 2 neighbors dies (underpopulation)</li>
+                <li>Any live cell with 2 or 3 neighbors lives on</li>
+                <li>Any live cell with more than 3 neighbors dies (overpopulation)</li>
+                <li>Any dead cell with exactly 3 neighbors becomes a live cell (reproduction)</li>
+            </ol>
+            <p class="tip">Click on cells to toggle them alive/dead</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
